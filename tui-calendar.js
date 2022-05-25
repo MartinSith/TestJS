@@ -11701,7 +11701,7 @@ Calendar.prototype._onBeforeCreate = function(createScheduleData) {
             console.log("Upravil som to!");
             
             document.getElementById("tui-full-calendar-schedule-location").value = document.getElementById("x_desk_id").value;
-            if (document.getElementById("x_rights").value == 0) {
+            if (document.getElementById("x_rights_level").value <= 4) {
                 document.getElementById("tui-full-calendar-schedule-location").disabled = true;
                 document.getElementById("tui-full-calendar-schedule-calendar").parentElement.classList.remove("tui-full-calendar-dropdown-button");
             }
@@ -12478,7 +12478,7 @@ function createMonthView(baseController, layoutContainer, dragHandler, options) 
                 createView.render(eventData);
 
                 document.getElementById("tui-full-calendar-schedule-location").value = document.getElementById("x_desk_id").value;
-                if (document.getElementById("x_rights").value == 0) {
+                if (document.getElementById("x_rights_level").value <= 4) {
                     document.getElementById("tui-full-calendar-schedule-location").disabled = true;
                     document.getElementById("tui-full-calendar-schedule-calendar").parentElement.classList.remove("tui-full-calendar-dropdown-button");
                 }
@@ -12895,7 +12895,7 @@ module.exports = function(baseController, layoutContainer, dragHandler, options,
                 createView.render(eventData);
             
                 document.getElementById("tui-full-calendar-schedule-location").value = document.getElementById("x_desk_id").value;
-                if (document.getElementById("x_rights").value == 0) {
+                if (document.getElementById("x_rights_level").value <= 4) {
                     document.getElementById("tui-full-calendar-schedule-location").disabled = true;
                     document.getElementById("tui-full-calendar-schedule-calendar").parentElement.classList.remove("tui-full-calendar-dropdown-button");
                 }
