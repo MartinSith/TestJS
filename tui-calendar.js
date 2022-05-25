@@ -15047,7 +15047,10 @@ Drag.prototype._onMouseUp = function(mouseUpEvent) {
          * @property {HTMLElement} target - target element in this event.
          * @property {MouseEvent} originEvent - original mouse event object.
          */
+
+        console.log("Drag.prototype._onMouseUp 1");
         this.fire('dragEnd', this._getEventData(mouseUpEvent));
+        console.log("Drag.prototype._onMouseUp 2");
     } else {
         /**
          * Click events.
@@ -15056,7 +15059,10 @@ Drag.prototype._onMouseUp = function(mouseUpEvent) {
          * @property {HTMLElement} target - target element in this event.
          * @property {MouseEvent} originEvent - original mouse event object.
          */
+
+         console.log("Drag.prototype._onMouseUp 3");
         this.fire('click', this._getEventData(mouseUpEvent));
+        console.log("Drag.prototype._onMouseUp 4");
     }
 
     this._clearData();
