@@ -11699,8 +11699,8 @@ Calendar.prototype._onBeforeCreate = function(createScheduleData) {
         if (this._showCreationPopup) {
             this._showCreationPopup(createScheduleData);
             
-            document.getElementById("tui-full-calendar-schedule-location").value = global_location;
-            if (is_admin == 0) {
+            document.getElementById("tui-full-calendar-schedule-location").value = document.getElementById("x_desk_id").value;
+            if (document.getElementById("x_rights").value == 0) {
                 document.getElementById("tui-full-calendar-schedule-location").disabled = true;
                 document.getElementById("tui-full-calendar-schedule-calendar").parentElement.classList.remove("tui-full-calendar-dropdown-button");
             }
