@@ -12559,11 +12559,8 @@ function createMonthView(baseController, layoutContainer, dragHandler, options) 
             monthView.vLayout.refresh();
         },
         openCreationPopup: function(schedule) {
-            console.log("Prosim skaredo 1");
             if (createView && creationHandler) {
-                console.log("Prosim skaredo 2");
                 creationHandler.invokeCreationClick(Schedule.create(schedule));
-                console.log("Prosim skaredo 3");
             }
         },
         showCreationPopup: function(eventData) {
@@ -12891,9 +12888,15 @@ module.exports = function(baseController, layoutContainer, dragHandler, options,
                 var calendars = baseController.calendars;
                 eventData.isEditMode = true;
                 createView.setCalendars(calendars);
-                console.log("createView.render 12");
                 createView.render(eventData);
-                console.log("createView.render 13");
+
+                console.log("Upravil som too!");
+            
+                document.getElementById("tui-full-calendar-schedule-location").value = document.getElementById("x_desk_id").value;
+                if (document.getElementById("x_rights").value == 0) {
+                    document.getElementById("tui-full-calendar-schedule-location").disabled = true;
+                    document.getElementById("tui-full-calendar-schedule-calendar").parentElement.classList.remove("tui-full-calendar-dropdown-button");
+                }
             };
             createView.on('beforeUpdateSchedule', onEditSchedule);
             detailView.on('beforeUpdateSchedule', onShowEditPopup);
