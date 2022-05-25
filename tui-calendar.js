@@ -12455,7 +12455,9 @@ function createMonthView(baseController, layoutContainer, dragHandler, options) 
                 eventData.schedule = util.extend({}, eventData.schedule, {isReadOnly: true});
             }
 
+            console.log("detailView.render(eventData) 1");
             detailView.render(eventData);
+            console.log("detailView.render(eventData) 2");
         };
         onDeleteSchedule = function(eventData) {
             if (creationHandler) {
@@ -12473,7 +12475,9 @@ function createMonthView(baseController, layoutContainer, dragHandler, options) 
         if (options.useCreationPopup) {
             onShowEditPopup = function(eventData) {
                 createView.setCalendars(baseController.calendars);
+                console.log("createView.render(eventData) 1");
                 createView.render(eventData);
+                console.log("createView.render(eventData) 2");
             };
             createView.on('beforeUpdateSchedule', onEditSchedule);
             detailView.on('beforeUpdateSchedule', onShowEditPopup);
@@ -23450,10 +23454,10 @@ var helpers = {
         return schedule.body;
     },
     'popupEdit-tmpl': function() {
-        return 'Uprav';
+        return 'Edit';
     },
     'popupDelete-tmpl': function() {
-        return 'Vymaž';
+        return 'Delete';
     }
 };
 
