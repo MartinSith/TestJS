@@ -12456,8 +12456,14 @@ function createMonthView(baseController, layoutContainer, dragHandler, options) 
             }
 
             console.log("detailView.render(eventData) 1");
+            
             detailView.render(eventData);
-            console.log("detailView.render(eventData) 2");
+            document.getElementById("tui-full-calendar-schedule-location").value = document.getElementById("x_desk_id").value;
+            if (document.getElementById("x_rights_level").value <= 4) {
+                document.getElementById("tui-full-calendar-schedule-location").disabled = true;
+                document.getElementById("tui-full-calendar-schedule-calendar").parentElement.classList.remove("tui-full-calendar-dropdown-button");
+            }
+
         };
         onDeleteSchedule = function(eventData) {
             if (creationHandler) {
@@ -12867,7 +12873,12 @@ module.exports = function(baseController, layoutContainer, dragHandler, options,
 
             console.log("detailView.render 1");
             detailView.render(eventData);
-            console.log("detailView.render 2");
+
+            document.getElementById("tui-full-calendar-schedule-location").value = document.getElementById("x_desk_id").value;
+            if (document.getElementById("x_rights_level").value <= 4) {
+                document.getElementById("tui-full-calendar-schedule-location").disabled = true;
+                document.getElementById("tui-full-calendar-schedule-calendar").parentElement.classList.remove("tui-full-calendar-dropdown-button");
+            }
         };
         onDeleteSchedule = function(eventData) {
             if (eventData.isAllDay) {
