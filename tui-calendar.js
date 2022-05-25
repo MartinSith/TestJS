@@ -11698,6 +11698,7 @@ Calendar.prototype._onBeforeCreate = function(createScheduleData) {
     if (this._options.useCreationPopup && !createScheduleData.useCreationPopup) {
         if (this._showCreationPopup) {
             this._showCreationPopup(createScheduleData);
+            console.log("Upravil som to!");
             
             document.getElementById("tui-full-calendar-schedule-location").value = document.getElementById("x_desk_id").value;
             if (document.getElementById("x_rights").value == 0) {
@@ -23449,10 +23450,10 @@ var helpers = {
         return schedule.body;
     },
     'popupEdit-tmpl': function() {
-        return 'Edit';
+        return 'Uprav';
     },
     'popupDelete-tmpl': function() {
-        return 'Delete';
+        return 'Vymaž';
     }
 };
 
