@@ -8979,7 +8979,9 @@ Base.prototype.createSchedule = function(options, silent) {
         return null;
     }
 
+    console.log("Base.prototype.createSchedule pred");    
     schedule = this.addSchedule(Schedule.create(options));
+    console.log("Base.prototype.createSchedule po");   
 
     if (!silent) {
         /**
@@ -16871,6 +16873,8 @@ MonthMoveGuide.prototype._onDragStart = function(dragStartEvent) {
 
     this._hideOriginScheduleBlocks(model.cid());
 
+    console.log("MonthMoveGuide.prototype._onDragStart pred");   
+
     this.layer = layer;
     layer.setSize(widthPercent + '%', height);
     layer.setPosition(mousePos[0], mousePos[1]);
@@ -16885,6 +16889,9 @@ MonthMoveGuide.prototype._onDragStart = function(dragStartEvent) {
             borderRadius: monthView.controller.theme.month.schedule.borderRadius
         }
     }));
+
+    console.log("MonthMoveGuide.prototype._onDragStart po");  
+
     layer.show();
 
     if (!util.browser.msie) {
@@ -18945,10 +18952,14 @@ TimeMoveGuide.prototype._onDragStart = function(dragStartEventData) {
     this.guideElement = guideElement;
     this._container = dragStartEventData.relatedView.container;
 
+    console.log("TimeMoveGuide.prototype._onDragStart po");  
+
     this._model = util.extend(
         Schedule.create(dragStartEventData.model),
         dragStartEventData.model
     );
+
+    console.log("TimeMoveGuide.prototype._onDragStart po");  
 
     modelDuration = this._model.duration();
     modelDuration = modelDuration > SCHEDULE_MIN_DURATION ? modelDuration : SCHEDULE_MIN_DURATION;
@@ -19827,6 +19838,7 @@ Schedule.schema = {
  * @returns {Schedule} Schedule model instance.
  */
 Schedule.create = function(data) {
+  console.log("Schedule.create"); 
     var inst = new Schedule();
     inst.init(data);
 
