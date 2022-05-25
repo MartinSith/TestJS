@@ -8978,10 +8978,8 @@ Base.prototype.createSchedule = function(options, silent) {
     if (!this.invoke('beforeCreateSchedule', scheduleData)) {
         return null;
     }
-
-    console.log("Base.prototype.createSchedule pred");    
-    schedule = this.addSchedule(Schedule.create(options));
-    console.log("Base.prototype.createSchedule po");   
+   
+    schedule = this.addSchedule(Schedule.create(options)); 
 
     if (!silent) {
         /**
@@ -11698,7 +11696,6 @@ Calendar.prototype._onBeforeCreate = function(createScheduleData) {
     if (this._options.useCreationPopup && !createScheduleData.useCreationPopup) {
         if (this._showCreationPopup) {
             this._showCreationPopup(createScheduleData);
-            console.log("Upravil som to!");
             
             document.getElementById("tui-full-calendar-schedule-location").value = document.getElementById("x_desk_id").value;
             if (document.getElementById("x_rights_level").value > 4) {
@@ -12864,7 +12861,6 @@ module.exports = function(baseController, layoutContainer, dragHandler, options,
                 eventData.schedule = util.extend({}, eventData.schedule, {isReadOnly: true});
             }
 
-            console.log("detailView.render 1");
             detailView.render(eventData);
         };
         onDeleteSchedule = function(eventData) {
@@ -12955,15 +12951,11 @@ module.exports = function(baseController, layoutContainer, dragHandler, options,
             });
         },
         openCreationPopup: function(schedule) {
-            console.log("Prosim pekne 1");
             if (createView) {
-              console.log("Prosim pekne 2");
                 if (schedule.isAllDay) {
                     weekView.handler.creation.allday.invokeCreationClick(Schedule.create(schedule));
                 } else {
-                    console.log("Prosim pekne 3");
                     weekView.handler.creation.time.invokeCreationClick(Schedule.create(schedule));
-                    console.log("Prosim pekne 4");
                 }
             }
         },
@@ -15066,9 +15058,7 @@ Drag.prototype._onMouseUp = function(mouseUpEvent) {
          * @property {MouseEvent} originEvent - original mouse event object.
          */
 
-        console.log("Drag.prototype._onMouseUp 1");
         this.fire('dragEnd', this._getEventData(mouseUpEvent));
-        console.log("Drag.prototype._onMouseUp 2");
     } else {
         /**
          * Click events.
@@ -15078,9 +15068,7 @@ Drag.prototype._onMouseUp = function(mouseUpEvent) {
          * @property {MouseEvent} originEvent - original mouse event object.
          */
 
-         console.log("Drag.prototype._onMouseUp 3");
         this.fire('click', this._getEventData(mouseUpEvent));
-        console.log("Drag.prototype._onMouseUp 4");
     }
 
     this._clearData();
@@ -16897,8 +16885,6 @@ MonthMoveGuide.prototype._onDragStart = function(dragStartEvent) {
 
     this._hideOriginScheduleBlocks(model.cid());
 
-    console.log("MonthMoveGuide.prototype._onDragStart pred");   
-
     this.layer = layer;
     layer.setSize(widthPercent + '%', height);
     layer.setPosition(mousePos[0], mousePos[1]);
@@ -16913,8 +16899,6 @@ MonthMoveGuide.prototype._onDragStart = function(dragStartEvent) {
             borderRadius: monthView.controller.theme.month.schedule.borderRadius
         }
     }));
-
-    console.log("MonthMoveGuide.prototype._onDragStart po");  
 
     layer.show();
 
@@ -17957,7 +17941,6 @@ TimeCreation.prototype._createSchedule = function(eventData) {
      * @property {string} triggerEventName - event name
      */
 
-    console.log("SNAD UZ KONECNE");
     this.fire('beforeCreateSchedule', {
         isAllDay: false,
         start: new TZDate(start),
@@ -17965,7 +17948,6 @@ TimeCreation.prototype._createSchedule = function(eventData) {
         guide: this.guide,
         triggerEventName: eventData.triggerEvent
     });
-    console.log("SNAD UZ KONECNE 2");
 };
 
 /**
@@ -18979,14 +18961,10 @@ TimeMoveGuide.prototype._onDragStart = function(dragStartEventData) {
     this.guideElement = guideElement;
     this._container = dragStartEventData.relatedView.container;
 
-    console.log("TimeMoveGuide.prototype._onDragStart po");  
-
     this._model = util.extend(
         Schedule.create(dragStartEventData.model),
         dragStartEventData.model
-    );
-
-    console.log("TimeMoveGuide.prototype._onDragStart po");  
+    );  
 
     modelDuration = this._model.duration();
     modelDuration = modelDuration > SCHEDULE_MIN_DURATION ? modelDuration : SCHEDULE_MIN_DURATION;
@@ -19865,7 +19843,6 @@ Schedule.schema = {
  * @returns {Schedule} Schedule model instance.
  */
 Schedule.create = function(data) {
-  console.log("Schedule.create"); 
     var inst = new Schedule();
     inst.init(data);
 
