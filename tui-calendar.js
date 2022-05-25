@@ -12864,7 +12864,9 @@ module.exports = function(baseController, layoutContainer, dragHandler, options,
                 eventData.schedule = util.extend({}, eventData.schedule, {isReadOnly: true});
             }
 
+            console.log("detailView.render 1");
             detailView.render(eventData);
+            console.log("detailView.render 2");
         };
         onDeleteSchedule = function(eventData) {
             if (eventData.isAllDay) {
@@ -12889,7 +12891,9 @@ module.exports = function(baseController, layoutContainer, dragHandler, options,
                 var calendars = baseController.calendars;
                 eventData.isEditMode = true;
                 createView.setCalendars(calendars);
+                console.log("createView.render 12");
                 createView.render(eventData);
+                console.log("createView.render 13");
             };
             createView.on('beforeUpdateSchedule', onEditSchedule);
             detailView.on('beforeUpdateSchedule', onShowEditPopup);
