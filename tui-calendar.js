@@ -17938,6 +17938,8 @@ TimeCreation.prototype._createSchedule = function(eventData) {
      * @property {TimeCreationGuide} guide - TimeCreationGuide instance
      * @property {string} triggerEventName - event name
      */
+
+    console.log("SNAD UZ KONECNE");
     this.fire('beforeCreateSchedule', {
         isAllDay: false,
         start: new TZDate(start),
@@ -17945,6 +17947,7 @@ TimeCreation.prototype._createSchedule = function(eventData) {
         guide: this.guide,
         triggerEventName: eventData.triggerEvent
     });
+    console.log("SNAD UZ KONECNE 2");
 };
 
 /**
