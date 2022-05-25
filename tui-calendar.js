@@ -12475,9 +12475,13 @@ function createMonthView(baseController, layoutContainer, dragHandler, options) 
         if (options.useCreationPopup) {
             onShowEditPopup = function(eventData) {
                 createView.setCalendars(baseController.calendars);
-                console.log("createView.render(eventData) 1");
                 createView.render(eventData);
-                console.log("createView.render(eventData) 2");
+
+                document.getElementById("tui-full-calendar-schedule-location").value = document.getElementById("x_desk_id").value;
+                if (document.getElementById("x_rights").value == 0) {
+                    document.getElementById("tui-full-calendar-schedule-location").disabled = true;
+                    document.getElementById("tui-full-calendar-schedule-calendar").parentElement.classList.remove("tui-full-calendar-dropdown-button");
+                }
             };
             createView.on('beforeUpdateSchedule', onEditSchedule);
             detailView.on('beforeUpdateSchedule', onShowEditPopup);
@@ -12889,8 +12893,6 @@ module.exports = function(baseController, layoutContainer, dragHandler, options,
                 eventData.isEditMode = true;
                 createView.setCalendars(calendars);
                 createView.render(eventData);
-
-                console.log("Upravil som too!");
             
                 document.getElementById("tui-full-calendar-schedule-location").value = document.getElementById("x_desk_id").value;
                 if (document.getElementById("x_rights").value == 0) {
