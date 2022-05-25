@@ -11698,6 +11698,7 @@ Calendar.prototype._onBeforeCreate = function(createScheduleData) {
     if (this._options.useCreationPopup && !createScheduleData.useCreationPopup) {
         if (this._showCreationPopup) {
             this._showCreationPopup(createScheduleData);
+            console.log("Calendar.prototype._onBeforeCreate");
 
             return;
         }
